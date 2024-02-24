@@ -18,15 +18,16 @@ header {
     z-index: 1000; /* Ensure it's above other content */
 }
 
-
 .container {
     width: 100vw;
     height: 100vh;
     margin: 0;
     background-color: black;
     position: relative;
-    display: grid; /* Use CSS grid for layout */
-    grid-template-columns: 30% 70%; /* 25% for content, 75% for spline viewer */
+    display: grid; /* Use grid for layout */
+    grid-template-columns: 30% 70%; /* 30% for content, 70% for spline viewer */
+    align-items: center; /* Center items vertically */
+    justify-content: space-around; /* Add space around items */
 }
 
 .content {
@@ -40,18 +41,63 @@ header {
     padding: 10px; /* Adjust padding to maintain original height */
     box-sizing: border-box; /* Include border in element's total height */
     position: relative; /* Position relative for pseudo-element */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
 }
 
-.content::after {
-    content: ''; /* Create pseudo-element for gradient border */
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    z-index: -1;
-    background: linear-gradient(to right, purple, transparent); /* Apply gradient for border */
-    border-radius: inherit; /* Inherit border radius from parent */
+.spline-viewer {
+    width: 100%; /* Take up full width of its column */
+    max-width: 100%; /* Ensure it doesn't overflow */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 1; /* Set lower z-index for spline viewer */
+}
+
+.button-64 {
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-size: 15px;
+  justify-content: center;
+  line-height: 1em;
+  padding: 3px;
+  text-decoration: none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 196px;
+  }
 }
 
 .spline-viewer {
@@ -61,11 +107,14 @@ header {
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 40px;
     margin-bottom: 20px;
+    font-family: sans-serif;
 }
 
 p {
     font-size: 18px;
     line-height: 1.6;
 }
+
+
