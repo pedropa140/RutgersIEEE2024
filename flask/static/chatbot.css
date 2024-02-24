@@ -1,0 +1,72 @@
+body {
+    height: 100vh;
+    /* background-color: red; */
+    /* overflow: hidden; */
+}
+body::-webkit-scrollbar {
+    visibility: hidden;
+}
+h1 {
+    text-align: center;
+}
+#chatbot_area {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    /* background-color: pink; */
+}
+#chatbot_area_chat {
+    height: 80vh;
+    width: 100%;
+}
+#chatbot_area_chat_container {
+    width: 100%;
+    height: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    background-color: lightgray;
+}
+#chatbot_area_textbox {
+    /* height: 35%; */
+    width: 100%;
+    /* background-color: white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input {
+    width: 80%;  
+    height: 50px;  
+}
+input[type="text"] {
+    padding: 0px 0px 0px 20px ;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    width: 90%;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+}
+input[type="submit"] {
+    padding: 10px 20px;
+    width: 3%;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: lightblue;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+input[type="submit"]:hover {
+    box-shadow: 0 0 10px lightgray;
+}
+input[type="text"]:valid + input[type="submit"] {
+    box-shadow: 0 0 10px lightgray;
+    background-color: #007bff;
+}
