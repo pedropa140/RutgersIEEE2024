@@ -46,5 +46,5 @@ except Exception as e:
     
 @app.route("/")
 def mainpage():
-    return render_template("mainpage.html")
+    return render_template("main.html")
     
