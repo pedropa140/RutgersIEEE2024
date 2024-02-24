@@ -139,6 +139,18 @@ def login():
 
     return render_template("login.html")
 
+@app.route("/chatbot", methods=["GET", "POST"])
+def chatbot():
+    if request.method == "POST":
+        if not request.form.get("message"):
+            return render_template("error.html")
+
+        userInput = request.form.get("message")
+        print("User Input:", userInput)
+        return render_template("chatbot.html")
+    else:
+        return render_template("chatbot.html")
+
 
 init_db()
 if __name__ == "__main__":
