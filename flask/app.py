@@ -46,8 +46,9 @@ except Exception as e:
     
 @app.route("/")
 def mainpage():
-    return render_template("mainpage.html")
+    return render_template("main.html")
 
 @app.route("/edu")
 def education():
-    return render_template("education.html")    
+    return render_template("education.html")
+    
