@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 import os.path
 
 # Third-Party Imports
-from flask import Flask
+from flask import Flask, render_template
 from datetime import datetime
 
 # External Library Imports
@@ -43,3 +43,8 @@ try:
         print("GENAI_API_KEY environment variable is not set.")
 except Exception as e:
     print("Error initializing GenAI client:", e)
+    
+@app.route("/")
+def mainpage():
+    return render_template("mainpage.html")
+    
