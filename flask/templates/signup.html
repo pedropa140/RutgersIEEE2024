@@ -8,7 +8,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <style>
-	.container {
+body{
+	background-color: rgb(36, 31, 31);
+	color: white;
+}
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,11 +39,13 @@
 #form-text a:hover {
     text-decoration: underline;
 }
+
 </style>
 <body>
 <div class="container">
 	<form method="post" action="" class="form-signup">
 	<h3 id="form-title1">Sign Up</h3>
+	<br>
 	<div class="form-group">
 		<label for="firstName">First Name</label>
 		<input type="text" class="form-control" name="first_name" placeHolder="Evelyn" required autofocus>
