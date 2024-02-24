@@ -6,21 +6,51 @@ body {
     background-color: #f4f4f4;
     color: #333;
 }
+
 header {
-    background-color: #007bff;
+    background-color: #6a0dad; /* Change to purple color */
     color: #fff;
-    padding: 20px 0;
+    padding: 10px 0; /* Decrease top and bottom padding */
     text-align: center;
+    position: fixed; /* Make the navbar fixed */
+    top: 0; /* Position it at the top */
+    width: 100%; /* Make it full-width */
+    z-index: 1000; /* Ensure it's above other content */
 }
+
+
 .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 20px;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+.content {
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20px;
+}
+
+.spline-viewer {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    height: auto;
+}
+
 h1 {
     font-size: 36px;
     margin-bottom: 20px;
 }
+
 p {
     font-size: 18px;
     line-height: 1.6;
