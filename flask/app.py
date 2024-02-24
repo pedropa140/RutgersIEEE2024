@@ -1,15 +1,15 @@
+# Local Imports
+import calendarprogram
+
 # Standard Library Imports
 import os
 import sqlite3
-from datetime import datetime, timezone
 from os import urandom
 from dotenv import load_dotenv
-import datetime as dt
 import os.path
-import time
-import flask.calendarprogram as calendarprogram
+
 # Third-Party Imports
-from flask import Flask, jsonify, render_template, redirect, request, session, url_for, g
+from flask import Flask
 from datetime import datetime
 
 # External Library Imports
