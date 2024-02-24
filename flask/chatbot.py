@@ -35,18 +35,17 @@ def init_db():
 def mainpage():
     return render_template("chatbot.html")
 
-@app.route("/signup", methods=["GET", "POST"])
+@app.route("/chatbot", methods=["GET", "POST"])
 def chatbot():
     if request.method == "POST":
         if not request.form.get("message"):
             return render_template("error.html")
 
         userInput = request.form.get("message")
-
         print("User Input:", userInput)
-        return render_template("chatbot.html", userInput=userInput)
-
-    return render_template("chatbot.html")
+        return render_template("chatbot.html")
+    else:
+        return
 
 init_db()
 

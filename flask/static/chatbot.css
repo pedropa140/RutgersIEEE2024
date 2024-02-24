@@ -53,7 +53,7 @@ input[type="text"]:focus {
     border-color: #007bff;
 }
 button[type="submit"]{
-    height: 54px;
+    height: 50px;
     padding: 10px 20px;
     width: 3%;
     font-size: 16px;

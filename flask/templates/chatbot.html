@@ -20,19 +20,11 @@
                 <p id="userInputPlaceholder"></p>
             </div>
         </div>
-        <form id="chatbot_area_textbox">
-            <input type="text" id="message" placeholder="Talk to ChatBot" required minlength="1">
+        <form id="chatbot_area_textbox" >
+            <input type="text" id="message" placeholder="Talk to ChatBot" required minlength="1" name="message">
             <button type="submit">↑</button>
         </form>
     </div>
 
-    <!-- JavaScript to update userInputPlaceholder -->
-    <script>
-        // Get the user input passed from Flask
-        var userInput = "{{ userInput }}";
-
-        // Update the content of userInputPlaceholder
-        document.getElementById("userInputPlaceholder").innerText = userInput;
-    </script>
 </body>
 </html>
