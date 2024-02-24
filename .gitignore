@@ -1,3 +1,4 @@
 .env
 .venv
 profiles.db
+task.db

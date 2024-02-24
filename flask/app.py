@@ -29,7 +29,7 @@ app.secret_key = urandom(24)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 load_dotenv()
-DATABASE = 'task.db'
+DATABASE = 'profiles.db'
 app.config['DATABASE'] = DATABASE
 
 genai_client = None
