@@ -61,6 +61,81 @@ def init_db():
 def mainpage():
     return render_template("main.html")
 
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    if request.method == "POST":
+        if (
+            not request.form.get("email")
+            or not request.form.get("passw")
+            or not request.form.get("first_name")
+            or not request.form.get("last_name")
+        ):
+            return render_template("error.html")
+
+        email = request.form.get("email")
+        passw = request.form.get("passw")
+        first_name = request.form.get("first_name")
+        first_name = first_name[0].upper() + first_name[1:]
+        last_name = request.form.get("last_name")
+        last_name = last_name[0].upper() + last_name[1:]
+
+
+        db = get_db()
+        cursor = db.cursor()
+       # print("Email:", email)
+
+        # Check if email already exists in the database
+        cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
+        existing_user = cursor.fetchone()
+        if existing_user:
+            return render_template("error.html")
+
+        # Insert the new user into the database
+        cursor.execute(
+            "INSERT INTO users (first_name, last_name, email, passw) VALUES (?, ?, ?, ?)",
+            (first_name, last_name, email, passw),
+        )
+        db.commit()
+
+        # Retrieve the inserted user's ID
+        cursor.execute("SELECT id FROM users WHERE email = ?", (email,))
+        user_id = cursor.fetchone()[0]
+
+        # Store user ID in the session
+        session["user_id"] = user_id
+
+        return redirect(url_for("home"))
+    else:
+        return render_template("signup.html")
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        email = request.form.get("email")
+        passw = request.form.get("passw")  # Rename to "password" for clarity
+        print(email)
+        print(passw)
+        db = get_db()
+        cursor = db.cursor()
+
+        # Retrieve the user's record from the database based on email
+        cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
+        user = cursor.fetchone()
+
+        if not user:
+            return render_template("error.html")
+
+        # Compare the provided password with the password stored in the database
+        if user[4] == passw:  # Assuming both are plain text
+            # Store user information in the session
+            session["user_id"] = user[0]
+            return redirect(url_for("home"))
+        else:
+            return render_template("error.html")
+
+    return render_template("login.html")
+
+
 init_db()
 if __name__ == "__main__":
     app.run(debug=True)
