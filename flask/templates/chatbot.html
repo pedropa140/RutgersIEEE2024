@@ -9,27 +9,30 @@
     <title>DRC Hack - Chatbot</title>
 </head>
 <body>
-    <h1>ChatBot (Powered by Gemini AI by Google)</h1>
+    <header>
+        {%include 'navbar.html' %}
+    </header>
+    <h1 style="padding-top: 70px;">ChatBot (Powered by Gemini AI by Google)</h1>
     <div id="chatbot_area">
         <div id="chatbot_area_chat">
             <div id="chatbot_area_chat_container">
-                
+                <!-- Here, you can display the user input -->
+                <p id="userInputPlaceholder"></p>
             </div>
         </div>
         <form id="chatbot_area_textbox">
             <input type="text" id="message" placeholder="Talk to ChatBot" required minlength="1">
-
-            <input type="submit" value="↑" onclick="showAlert()">
+            <button type="submit">↑</button>
         </form>
     </div>
+
+    <!-- JavaScript to update userInputPlaceholder -->
     <script>
-        function showAlert() {
-            // Get the entered message
-            var message = document.getElementById("message").value;
-        
-            // Display an alert with the message
-            alert(message);
-        }
+        // Get the user input passed from Flask
+        var userInput = "{{ userInput }}";
+
+        // Update the content of userInputPlaceholder
+        document.getElementById("userInputPlaceholder").innerText = userInput;
     </script>
 </body>
 </html>
