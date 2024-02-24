@@ -108,7 +108,7 @@ def signup():
         # Store user ID in the session
         session["user_id"] = user_id
 
-        return redirect(url_for("home"))
+        return render_template("chatbot.html")
     else:
         return render_template("signup.html")
 
@@ -147,6 +147,9 @@ def chatbot():
 
         userInput = request.form.get("message")
         print("User Input:", userInput)
+        model = genai.GenerativeModel('models/gemini-pro')
+        result = model.generate_content(userInput)
+        print(result)
         return render_template("chatbot.html")
     else:
         return render_template("chatbot.html")
