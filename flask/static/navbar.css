@@ -1,0 +1,11 @@
+.btn-outline-custom {
+    color: #fff;
+    background-color: #800080; /* Purple color */
+    border-color: #800080; /* Purple color */
+}
+
+.btn-outline-custom:hover {
+    color: #fff;
+    background-color: #6a007d; /* Darker shade of purple for hover effect */
+    border-color: #6a007d; /* Darker shade of purple for hover effect */
+}
