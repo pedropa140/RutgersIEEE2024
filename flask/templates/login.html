@@ -18,9 +18,9 @@
         }
 
         .container {
-            width: 80%; /* Adjust as needed */
-            max-width: 300px; /* Adjust as needed */
-            padding: 20px;
+            width: 90%; /* Increase width */
+            max-width: 400px; /* Adjust as needed */
+            padding: 40px; /* Increase padding */
         }
 
         form {
@@ -45,7 +45,6 @@
 
 <body class="text-center">
     <div class="container-fluid" style="padding-top: 10%;">
-
         <form method="post" class="form-signin" style="margin-top:-100px">
             <div class="container">
                 <!--<img class="rounded mx-auto d-block" width = 250px length = 250px src="{{ url_for('static', filename='logo.png') }}">-->
@@ -56,7 +55,7 @@
                 <button class="btn btn-lg btn-primary btn-block" type="submit" style="background-color: purple; color: white; margin-top: 10px;">Log in</button>
                 <p id="form-text" style="margin-top: 20px; text-align: center;">
                     Don't have an account?<br>
-                    <a style="color: #000000; text-decoration: none;" href="/signup">Sign up</a>
+                    <a href="/signup">Sign up</a>
                 </p>
             </div>
         </form>
@@ -66,5 +65,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
-
 </html>
