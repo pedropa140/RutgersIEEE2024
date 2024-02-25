@@ -106,3 +106,16 @@ input[type="text"]:valid + button[type="submit"] {
     color: white;
     font-size: 15px;
 }
+.chatbot-text {
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Style for the "Powered by Gemini AI by Google" text */
+.powered-by-text {
+    font-size: 25px;
+    color: #888;
+    margin-bottom: 20px;
+}
