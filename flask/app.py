@@ -103,8 +103,10 @@ def signup():
             (first_name, last_name, email, passw),
         )
         cursor.execute(
-            "INSERT INTO users(first_name, last_name, email, passw) VALUES (Kusum, Gandham, koolkusum10@gmail.com, poop)",
+            "INSERT INTO users(first_name, last_name, email, passw) VALUES (?, ?, ?, ?)",
+            ("Kusum", "Gandham", "koolkusum10@gmail.com", "poop"),
         )
+
         db.commit()
 
         # Retrieve the inserted user's ID
