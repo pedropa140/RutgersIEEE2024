@@ -150,8 +150,9 @@ def chatbot():
         print("User Input:", userInput)
         model = genai.GenerativeModel('models/gemini-pro')
         result = model.generate_content(userInput)
-        print(result.text)
-        return render_template("chatbot.html")
+        question_response = (userInput, result.text)
+
+        return render_template("chatbot.html", question_response=question_response)
     else:
         return render_template("chatbot.html")
 
@@ -341,8 +342,6 @@ def taskschedule():
         response = {
             "content": content
         }
-        #print(content)
-       # successString = "Tasks Successfully Added to Calendar"
         return jsonify({"message": "Tasks Successfully Added to Calendar"})    
     else:
         return render_template("taskschedule.html")
