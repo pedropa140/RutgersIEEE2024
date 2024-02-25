@@ -71,47 +71,47 @@ def education():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
-        if (
-            not request.form.get("email")
-            or not request.form.get("passw")
-            or not request.form.get("first_name")
-            or not request.form.get("last_name")
-        ):
-            return render_template("error.html")
+        # if (
+        #     not request.form.get("email")
+        #     or not request.form.get("passw")
+        #     or not request.form.get("first_name")
+        #     or not request.form.get("last_name")
+        # ):
+        #     return render_template("error.html")
 
-        email = request.form.get("email")
-        passw = request.form.get("passw")
-        first_name = request.form.get("first_name")
-        first_name = first_name[0].upper() + first_name[1:]
-        last_name = request.form.get("last_name")
-        last_name = last_name[0].upper() + last_name[1:]
+    #     email = request.form.get("email")
+    #     passw = request.form.get("passw")
+    #     first_name = request.form.get("first_name")
+    #     first_name = first_name[0].upper() + first_name[1:]
+    #     last_name = request.form.get("last_name")
+    #     last_name = last_name[0].upper() + last_name[1:]
 
 
-        db = get_db()
-        cursor = db.cursor()
-       # print("Email:", email)
+    #     db = get_db()
+    #     cursor = db.cursor()
+    #    # print("Email:", email)
 
-        # Check if email already exists in the database
-        cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
-        existing_user = cursor.fetchone()
-        if existing_user:
-            return render_template("error.html")
+    #     # Check if email already exists in the database
+    #     cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
+    #     existing_user = cursor.fetchone()
+    #     if existing_user:
+    #         return render_template("error.html")
 
-        # Insert the new user into the database
-        cursor.execute(
-            "INSERT INTO users (first_name, last_name, email, passw) VALUES (?, ?, ?, ?)",
-            (first_name, last_name, email, passw),
-        )
-        cursor.execute(
-            "INSERT INTO users(first_name, last_name, email, passw) VALUES (?, ?, ?, ?)",
-            ("Kusum", "Gandham", "koolkusum10@gmail.com", "poop"),
-        )
+    #     # Insert the new user into the database
+    #     cursor.execute(
+    #         "INSERT INTO users (first_name, last_name, email, passw) VALUES (?, ?, ?, ?)",
+    #         (first_name, last_name, email, passw),
+    #     )
+    #     cursor.execute(
+    #         "INSERT INTO users(first_name, last_name, email, passw) VALUES (?, ?, ?, ?)",
+    #         ("Kusum", "Gandham", "koolkusum10@gmail.com", "poop"),
+    #     )
 
-        db.commit()
+    #     db.commit()
 
-        # Retrieve the inserted user's ID
-        cursor.execute("SELECT id FROM users WHERE email = ?", (email,))
-        user_id = cursor.fetchone()[0]
+    #     # Retrieve the inserted user's ID
+    #     cursor.execute("SELECT id FROM users WHERE email = ?", (email,))
+    #     user_id = cursor.fetchone()[0]
 
         # Store user ID in the session
         # session["user_id"] = user_id
