@@ -159,7 +159,7 @@ def chatbot():
         query = f"As a chatbot, your goal is to help with questions that only pertain into women in the field of STEM. The question the user wants to ask is {userInput}. Please answer the prompt not in markdown please."
         model = genai.GenerativeModel('models/gemini-pro')
         result = model.generate_content(query)
-        result.text.replace("\n", "<br>")
+        result.text.replace("<br>", "\n-" )
         print(result.text)
         question_response = (userInput, result.text)
 
