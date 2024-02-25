@@ -36,7 +36,7 @@
 
     <!-- Bootstrap container -->
     <div class="calendar-container">
-        <h2>Weekly Calendar</h2>
+        <h2>My Weekly To-Do</h2>
         <div id="calendar" class="row">
             <!-- Day containers will be dynamically inserted here -->
         </div>
@@ -60,7 +60,7 @@
             days.forEach((day, index) => {
                 const dayContainer = document.createElement('div');
                 dayContainer.classList.add('col', 'day-container');
-                if (index === 6) {
+                if (index == 6) {
                     dayContainer.classList.add('saturday-container');
                 }
                 dayContainer.innerHTML = `<h4>${day}</h4><div class="events-container" style="max-height: 200px; overflow-y: auto;"></div>`;
