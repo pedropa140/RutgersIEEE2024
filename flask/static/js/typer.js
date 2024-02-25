@@ -7,8 +7,8 @@ const textToType = [
 ];
 
 // Function to simulate typing effect
+let index = 0;
 function typeText() {
-  let index = 0;
   let currentText = "";
   let letterIndex = 0;
 
@@ -31,6 +31,7 @@ function typeText() {
         document.getElementById("typing-text").innerText = currentText + "|";
       } else {
         clearInterval(eraseInterval);
+        document.getElementById("typing-text").innerText = ""; // Clear the text
         index = (index + 1) % textToType.length; // Move to the next string
         letterIndex = 0; // Reset letterIndex for the next word
         currentText = ""; // Reset currentText for the next word
