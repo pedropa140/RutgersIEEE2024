@@ -1,51 +1,70 @@
 <!DOCTYPE html>
 <html>
-	<style type="text/css">
-       .form-header {
-            color: purple;
-        }
-		.form-header:hover {
-    animation: rainbowEffect 3s infinite;
-        }
-
-        @keyframes rainbowEffect {
-            0% { color: rgb(216, 0, 216); }
-            16.666% { color: rgb(255, 145, 0); }
-            33.333% { color: rgb(255, 0, 0); }
-            50% { color: green; }
-            66.666% { color: yellow; }
-            83.333% { color: orange; }
-            100% { color: red; }
-        }
-        
-    </style>
 
 <head>
-	<title>Login</title>
-	<link rel="stylesheet" href="{{url_for('static', filename='css/form.css')}}">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/form.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(36, 31, 31);
+            color: white;
+        }
+
+        .container {
+            width: 80%; /* Adjust as needed */
+            max-width: 300px; /* Adjust as needed */
+            padding: 20px;
+        }
+
+        form {
+            margin-top: -50px; /* Adjust as needed */
+        }
+
+        #form-title1,
+        #form-text {
+            text-align: center;
+        }
+
+        #form-text a {
+            color: #007bff; /* Adjust the color of the link */
+            text-decoration: none;
+        }
+
+        #form-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body class="text-center">
-	<div class="container-fluid" style="padding-top: 10%;">
+    <div class="container-fluid" style="padding-top: 10%;">
 
-<form method="post" class="form-signin" style="margin-top:-100px">
-	<div class="container">
-	<!--<img class="rounded mx-auto d-block" width = 250px length = 250px src="{{ url_for('static', filename='logo.png') }}">-->
-	<h2 class="form-header" id="form-title1"> Login</h2>
-	<input type="email" name = "email" id="email" class="form-control" placeholder="name@example.com" required autofocus>
-	<input style="margin-top: 10px;" type="password" name = "passw" id="passw" class="form-control" placeholder="password" required>
-	<button class="btn btn-lg btn-primary btn-block" type="submit" style="background-color: purple; color: white; margin-top: 10px;">Sign in</button>
-	<p id="form-text" style="margin-top: 20px; text-align: center;">
-        Don't have an account?<br>
-        <a style="color: #000000; text-decoration: none;" href="/signup">Sign up</a>
-    </p>
-	</div>
-</form>
-</div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <form method="post" class="form-signin" style="margin-top:-100px">
+            <div class="container">
+                <!--<img class="rounded mx-auto d-block" width = 250px length = 250px src="{{ url_for('static', filename='logo.png') }}">-->
+                <h2 class="form-header" id="form-title1"> Login</h2>
+                <br>
+                <input type="email" name="email" id="email" class="form-control" placeholder="name@example.com" required autofocus>
+                <input style="margin-top: 10px;" type="password" name="passw" id="passw" class="form-control" placeholder="password" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" style="background-color: purple; color: white; margin-top: 10px;">Log in</button>
+                <p id="form-text" style="margin-top: 20px; text-align: center;">
+                    Don't have an account?<br>
+                    <a style="color: #000000; text-decoration: none;" href="/signup">Sign up</a>
+                </p>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
+
 </html>
