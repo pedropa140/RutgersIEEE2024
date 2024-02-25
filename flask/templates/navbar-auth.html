@@ -40,9 +40,9 @@ crossorigin="anonymous"
           aria-label="Close"
         ></button>
       </div>
-      <div class="offcanvas-body d-flex flex-column">
+      <div class="offcanvas-body">
         <!-- Search form -->
-        <form class="d-flex">
+        <form class="d-flex mt-3">
           <input
             class="form-control me-2"
             type="search"
@@ -54,55 +54,47 @@ crossorigin="anonymous"
           </button>
         </form>
         <!-- Navbar items -->
-        <div class="flex-grow-1">
-          <ul class="navbar-nav justify-content-end pe-3">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="{{ url_for('chatbot') }}"
-                >Chatbot</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="{{ url_for('taskschedule') }}"
-                >Task Scheduler</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="{{ url_for('cal') }}"
-                >Calendar</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="{{ url_for('matching') }}"
-                >Find your match!</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="{{ url_for('signup') }}"
-                >Signup</a
-              >
-            </li>
-            <!-- Dropdown -->
-          </ul>
-        </div>
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="{{ url_for('chatbot') }}"
+              >Chatbot</a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Calendar
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{{ url_for('cal') }}">View Calendar</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('prodev') }}">Events</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{{ url_for('taskschedule') }}">Scheduler</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="{{ url_for('matching') }}"
+              >Find your match!</a
+            >
+          </li>
+          <!-- Dropdown -->
+        </ul>
         <!-- Logout button -->
         <div class="mt-auto">
           <a href="{{ url_for('mainpage') }}" class="btn btn-outline-danger btn-sm">Logout</a>
-        </div>  
+        </div>
       </div>
     </div>
   </div>
