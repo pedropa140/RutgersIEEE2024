@@ -9,13 +9,13 @@
       
           src: url("My-Font.otf")format("opentype");
       
-        }
+        } */
       
       
       
-        * {
+        {
       
-          font-family: MyFont !important;
+          font-family: MyFont !important; 
       
       
       }
@@ -49,7 +49,18 @@
                 </div>
             
                 <div id="botInput">
-                    <p>{{ question_response[1] }}</p>
+                    <p>
+                        <!-- {{ question_response[1].replace('\n', '<br>') }} -->
+                        {% verbatim %}
+                        {
+                            { 
+                                text = question_response[1].replace('\n', '<br>').split('<br>')
+
+                        
+                            }
+                        }
+                        {% endverbatim %}
+                    </p>
                 </div>
             </div>
         </div>
