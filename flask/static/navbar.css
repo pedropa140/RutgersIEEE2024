@@ -1,11 +1,15 @@
-.btn-outline-custom {
-    color: #fff;
-    background-color: #800080; /* Purple color */
-    border-color: #800080; /* Purple color */
+@import url('../static/colors.css');
+
+.btn-custom {
+    color: var(--text-color);
+    background-color: transparent;
+    border-color: var(--primary-color);
 }
 
-.btn-outline-custom:hover {
-    color: #fff;
-    background-color: #6a007d; /* Darker shade of purple for hover effect */
-    border-color: #6a007d; /* Darker shade of purple for hover effect */
+/* Optionally adjust hover and active states: */
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active {
+    background-color: var(--btn-hover); /* Lighter shade on hover */
+    border-color: var(--primary-color);
 }
