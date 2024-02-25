@@ -49,18 +49,11 @@
                 </div>
             
                 <div id="botInput">
+                    {% autoescape off %}
                     <p>
-                        <!-- {{ question_response[1].replace('\n', '<br>') }} -->
-                        {% verbatim %}
-                        {
-                            { 
-                                text = question_response[1].replace('\n', '<br>').split('<br>')
-
-                        
-                            }
-                        }
-                        {% endverbatim %}
+                        {{ question_response[1].replace('\n', '<br>') }}
                     </p>
+                    {% endautoescape %}
                 </div>
             </div>
         </div>
