@@ -85,10 +85,11 @@
     <div class="profile-container">
         <div class="border rounded-lg p-4">
             <h2 class="mb-4">User Profile</h2>
-            <div class="profile-img">
-                <img src="path/to/image.jpg" alt="Profile Image">
-            </div>
             <div class="profile-info">
+                <div class="profile-img">
+                    <img src="" alt="Profile Image" id="profile-picture"> 
+                    <span id="photo"></span>
+                </div>
                 <p><strong>Name:</strong> <span id="name"></span></p>
                 <p><strong>Email:</strong> <span id="email"></span></p>
                 <p><strong>Occupation:</strong> <span id="occupation"></span></p>
@@ -107,24 +108,28 @@
     <script>
         var example_profiles = [
             {
+                "picture": "../static/images/kusum.png",
                 "name": "Kumom Gandham",
                 "email": "kumom@example.com",
                 "occupation": "Software Engineer",
                 "description": "I'm passionate about coding and love exploring new technologies. In my free time, I enjoy hiking and reading science fiction novels."
             },
             {
+                "picture": "../static/images/pedro.png",
                 "name": "Petra Pajarillo",
                 "email": "mary@example.com",
                 "occupation": "Data Scientist",
                 "description": "I'm a data enthusiast who enjoys diving into datasets to uncover insights. Outside of work, I'm an avid runner and enjoy cooking international cuisines."
             },
             {
+                "picture": "../static/images/shatakshi.png",
                 "name": "Fraction Ranjan",
                 "email": "fraction@example.com",
                 "occupation": "Web Developer",
                 "description": "I'm a web developer with a keen interest in user interface design. I spend my free time experimenting with new frontend frameworks and creating personal projects."
             },
             {
+                "picture": "../static/images/elian.png",
                 "name": "Eliana DB",
                 "email": "eliana@example.com",
                 "occupation": "Machine Learning Engineer",
@@ -137,6 +142,7 @@
 
         function displayProfile(index) {
             var profile = example_profiles[index];
+            document.getElementById('profile-picture').src = profile.picture; // This line was missing
             document.getElementById('name').textContent = profile.name;
             document.getElementById('email').textContent = profile.email;
             document.getElementById('occupation').textContent = profile.occupation;
