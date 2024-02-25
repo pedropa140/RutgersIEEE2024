@@ -12,12 +12,12 @@ h1 {
 #chatbot_area {
     height: 100%;
     width: 100%;
-    overflow: hidden;
     /* background-color: pink; */
 }
 #chatbot_area_chat {
     height: 80vh;
     width: 100%;
+    overflow: scroll;
 }
 #chatbot_area_chat_container {
     width: 100%;
