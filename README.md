@@ -7,7 +7,7 @@
 
 <div style="text-align: center; background: ; width:300px;">
     <img src="flask/static/Images/icon.png" alt="Logo"  width="300" height="300">
-<h1 style="color:black;font-family:'Times New Roman'">BalanSync</h1>
+<h1 style="color:black;font-family:'Times New Roman'">WomenInSTEM</h1>
 </div>
 
 </div>
