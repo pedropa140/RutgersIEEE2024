@@ -150,7 +150,7 @@ def chatbot():
         print("User Input:", userInput)
         model = genai.GenerativeModel('models/gemini-pro')
         result = model.generate_content(userInput)
-        print(result)
+        print(result.text)
         return render_template("chatbot.html")
     else:
         return render_template("chatbot.html")
