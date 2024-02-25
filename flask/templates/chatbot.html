@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+
+        @font-face{
+      
+          font-family: MyFont;
+      
+          src: url("My-Font.otf")format("opentype");
+      
+        }
+      
+      
+      
+        * {
+      
+          font-family: MyFont !important;
+      
+      
+      }
+      #userInput, #botInput {
+            margin-bottom: 10px; /* Add a default margin-bottom */
+        }
+
+        .padded {
+            padding: 10px; /* Apply padding */
+        }
+      
+      </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to DRC Hack - Empowering Innovation">
@@ -17,8 +44,13 @@
     <div id="chatbot_area">
         <div id="chatbot_area_chat">
             <div id="chatbot_area_chat_container">
-                <p id="userInput">{{ question_response[0] }}</p>
-                <p id="botInput">{{ question_response[1] }}</p>
+                <div id="userInput">
+                    <p>{{ question_response[0] }}</p>
+                </div>
+            
+                <div id="botInput">
+                    <p>{{ question_response[1] }}</p>
+                </div>
             </div>
         </div>
         <form method = "post" form id="chatbot_area_textbox" >
@@ -26,10 +58,19 @@
             <button type="submit">↑</button>
         </form>
     </div>
-    <!-- <script>
-        var markdownContent = document.getElementById('markdownContent').value;
-        document.getElementById('renderedContent').innerHTML = marked(markdownContent);
-    </script> -->
+    <script>
+        // JavaScript code to add padding if the content is not empty
+        var userInputParagraph = document.querySelector('#userInput p');
+        var botInputParagraph = document.querySelector('#botInput p');
+
+        if (userInputParagraph.textContent.trim() !== '') {
+            userInputParagraph.classList.add('padded');
+        }
+
+        if (botInputParagraph.textContent.trim() !== '') {
+            botInputParagraph.classList.add('padded');
+        }
+    </script>
 
 </body>
 </html>

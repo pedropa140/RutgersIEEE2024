@@ -25,7 +25,7 @@ h1 {
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 15px;
-    background-color: lightgray;
+    background-color: transparent;
 }
 #chatbot_area_textbox {
     /* height: 35%; */
@@ -71,11 +71,31 @@ input[type="text"]:valid + button[type="submit"] {
     box-shadow: 0 0 10px lightgray;
     background-color: #007bff;
 }
-.userInput {
-    width: 40%;
-    text-align: left;
-}
-.botInput {
-    width: 40%;
+#userInput {    
+    width: 65%;
+    margin-left: auto;
     text-align: right;
+    display: flex;
+    justify-content: flex-end;
+}
+#userInput p{    
+    width: auto;
+    margin: none;
+    background-color: #5fc9f8;
+    border-radius: 5px;
+    color: white;
+}
+#botInput {
+    width: 65%;
+    margin-right: auto;
+    text-align: left;
+    display: flex;
+    justify-content: flex-end;
+}
+#botInput p{
+    width: auto;
+    margin-left: auto;
+    background-color: #8e8e93;
+    border-radius: 5px;
+    color: white;
 }
