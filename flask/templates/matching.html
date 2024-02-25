@@ -6,31 +6,13 @@
     <meta name="description" content="Welcome to DRC Hack - Empowering Innovation">
     <link rel="icon" type="image/png" href="/static/images/icon.png">
     <style>
-        /* Style profile buttons */
-        .match-buttons button {
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+        /* Style updates for a cleaner, card-like appearance */
+        body {
+            background-color: rgb(36, 31, 31); /* Lighter background for contrast */
+            color: #333; /* Darker text for readability */
+            font-family: Arial, sans-serif; /* Improved font choice */
         }
 
-        .match-buttons button:hover {
-            background-color: #ddd;
-        }
-
-        #yes-button {
-            background-color: #4CAF50; /* Green */
-            color: white;
-        }
-
-        #no-button {
-            background-color: #f44336; /* Red */
-            color: white;
-        }
-
-        /* Center the container */
         .profile-container {
             display: flex;
             justify-content: center;
@@ -38,68 +20,113 @@
             height: 100vh;
         }
 
-        /* Remove black background */
-        body {
-            background-color: transparent;
+        .border.rounded-lg.p-4 {
+            background-color: white; /* Card background */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Card shadow for depth */
+            width: 100%; /* Adjust width as necessary */
+            max-width: 600px; /* Maximum width */
+            margin: auto; /* Center card */
+            padding: 20px; /* Padding for content */
+            text-align: center; /* Center content */
+            border-radius: 10px; /* Rounded corners */
         }
 
-        /* Style the purple outline */
-        .rounded-lg {
-            border: 2px solid purple;
+        .profile-img {
+            margin: 20px auto; /* Center image */
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .match-buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 5px; /* Space between buttons */
+        }
+
+        #yes-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #no-button {
+            background-color: #f44336;
+            color: white;
+        }
+
+        /* Hover effect for buttons */
+        .match-buttons button:hover {
+            background-color: #ddd;
+            color: #333; /* Change text color for contrast */
+        }
+
     </style>
     <title>DRC Hack - Matchmaking</title>
 </head>
-<body class="bg-dark text-white">
+<body>
     <header>
-        {% include 'navbar-auth.html' %}
+        <!-- Navigation placeholder -->
     </header>
 
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="border rounded-lg p-4">
-                    <h2 class="mb-4">User Profile</h2>
-                    <div class="profile-info">
-                        <p><strong>Name:</strong> <span id="name"></span></p>
-                        <p><strong>Email:</strong> <span id="email"></span></p>
-                        <p><strong>Occupation:</strong> <span id="occupation"></span></p>
-                        <p><strong>Description:</strong> <span id="description"></span></p>
-                    </div>
-                    <div class="match-buttons">
-                        <button id="yes-button">Yes</button>
-                        <button id="no-button">No</button>
-                    </div>
-                </div>
+    <div class="profile-container">
+        <div class="border rounded-lg p-4">
+            <h2 class="mb-4">User Profile</h2>
+            <div class="profile-img">
+                <img src="path/to/image.jpg" alt="Profile Image">
+            </div>
+            <div class="profile-info">
+                <p><strong>Name:</strong> <span id="name"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+                <p><strong>Occupation:</strong> <span id="occupation"></span></p>
+                <p><strong>Description:</strong> <span id="description"></span></p>
+            </div>
+            <div class="match-buttons">
+                <button id="yes-button">Yes</button>
+                <button id="no-button">No</button>
             </div>
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <!-- JavaScript logic unchanged -->
     <script>
         var example_profiles = [
             {
-                "name": "Alice",
-                "email": "alice@example.com",
+                "name": "Kumom Gandham",
+                "email": "kumom@example.com",
                 "occupation": "Software Engineer",
                 "description": "I'm passionate about coding and love exploring new technologies. In my free time, I enjoy hiking and reading science fiction novels."
             },
             {
-                "name": "Mary",
+                "name": "Petra Pajarillo",
                 "email": "mary@example.com",
                 "occupation": "Data Scientist",
                 "description": "I'm a data enthusiast who enjoys diving into datasets to uncover insights. Outside of work, I'm an avid runner and enjoy cooking international cuisines."
             },
             {
-                "name": "Sophia",
-                "email": "sophia@example.com",
+                "name": "Fraction Ranjan",
+                "email": "fraction@example.com",
                 "occupation": "Web Developer",
                 "description": "I'm a web developer with a keen interest in user interface design. I spend my free time experimenting with new frontend frameworks and creating personal projects."
             },
             {
-                "name": "Emma",
-                "email": "emma@example.com",
+                "name": "Eliana DB",
+                "email": "eliana@example.com",
                 "occupation": "Machine Learning Engineer",
                 "description": "I'm passionate about artificial intelligence and its applications. I enjoy working on challenging ML projects and staying updated with the latest research."
             }
