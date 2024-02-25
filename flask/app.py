@@ -102,6 +102,9 @@ def signup():
             "INSERT INTO users (first_name, last_name, email, passw) VALUES (?, ?, ?, ?)",
             (first_name, last_name, email, passw),
         )
+        cursor.execute(
+            "INSERT INTO users(first_name, last_name, email, passw) VALUES (Kusum, Gandham, koolkusum10@gmail.com, poop)",
+        )
         db.commit()
 
         # Retrieve the inserted user's ID
@@ -348,6 +351,10 @@ def taskschedule():
         return jsonify({"message": "Tasks Successfully Added to Calendar"})    
     else:
         return render_template("taskschedule.html")
+    
+app.route("/calendardisplay")
+def calendardisplay():
+    render_template("calendardisplay.html")
 
 init_db()
 if __name__ == "__main__":
