@@ -357,9 +357,9 @@ def taskschedule():
     else:
         return render_template("taskschedule.html")
     
-app.route("/calendardisplay")
-def calendardisplay():
-    render_template("calendardisplay.html")
+@app.route("/cal")
+def cal():
+    return render_template("cal.html")
 
 init_db()
 if __name__ == "__main__":
