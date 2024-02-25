@@ -1,7 +1,7 @@
 body {
     height: 100vh;
     /* background-color: red; */
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 body::-webkit-scrollbar {
     visibility: hidden;
@@ -24,7 +24,7 @@ h1 {
     height: 100%;
     padding-left: 40px;
     padding-right: 40px;
-    padding-top: 15px;
+    /* padding-top: 15px; */
     background-color: transparent;
 }
 #chatbot_area_textbox {
@@ -84,7 +84,7 @@ input[type="text"]:valid + button[type="submit"] {
     background-color: #5fc9f8;
     border-radius: 5px;
     color: white;
-    /* font-size: 12px; */
+    font-size: 12px;
 }
 #botInput {
     width: 65%;
@@ -99,5 +99,5 @@ input[type="text"]:valid + button[type="submit"] {
     background-color: #8e8e93;
     border-radius: 5px;
     color: white;
-    /* font-size: 12px; */
+    font-size: 12px;
 }

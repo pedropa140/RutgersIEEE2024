@@ -40,7 +40,7 @@
     <header>
         {%include 'navbar.html' %}
     </header>
-    <h1 style="padding-top: 70px;">ChatBot (Powered by Gemini AI by Google)</h1>
+    <h1 style="padding: 20px;">ChatBot (Powered by Gemini AI by Google)</h1>
     <div id="chatbot_area">
         <div id="chatbot_area_chat">
             <div id="chatbot_area_chat_container">
@@ -51,7 +51,7 @@
                 <div id="botInput">
                     {% autoescape off %}
                     <p>
-                        {{ question_response[1].replace('\n', '<br>') }}
+                        {{ question_response[1] }}
                     </p>
                     {% endautoescape %}
                 </div>
