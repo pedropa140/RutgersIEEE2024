@@ -117,7 +117,7 @@ def signup():
         # session["user_id"] = user_id
         question_response = ("", "")
 
-        return render_template("education.html")
+        return redirect("/edu")
     else:
         return render_template("signup.html")
 
