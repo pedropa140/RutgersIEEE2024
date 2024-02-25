@@ -362,6 +362,10 @@ def taskschedule():
 def cal():
     return render_template("cal.html")
 
+@app.route("/matching")
+def matching():
+    return render_template("matching.html")
+
 init_db()
 if __name__ == "__main__":
     app.run(debug=True)
