@@ -100,8 +100,10 @@ body {
 .custom-card-body {
   width: 100%; /* Adjust the width as per your requirement */
   margin: 0 auto; /* This will horizontally center the card body within the card */
+  height: 100%;
 }
 
 .match-child-width {
   width: 215%;
+  height: 100%
 }
