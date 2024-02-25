@@ -114,7 +114,7 @@ def signup():
         user_id = cursor.fetchone()[0]
 
         # Store user ID in the session
-        session["user_id"] = user_id
+        # session["user_id"] = user_id
         question_response = ("", "")
 
         return render_template("chatbot.html", question_response=question_response)
