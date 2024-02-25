@@ -27,11 +27,26 @@
     </div>
 
     <script>
-        var profiles = {{ profiles|tojson }};
+        var example_profiles = [
+            {
+                "name": "Alice",
+                "email": "alice@example.com",
+                "occupation": "Software Engineer",
+                "description": "I'm passionate about coding and love exploring new technologies. In my free time, I enjoy hiking and reading science fiction novels."
+            },
+            {
+                "name": "Bob",
+                "email": "bob@example.com",
+                "occupation": "Data Scientist",
+                "description": "I'm a data enthusiast who enjoys diving into datasets to uncover insights. Outside of work, I'm an avid runner and enjoy cooking international cuisines."
+            }
+            // Add more example profiles as needed
+        ];
+        
         var currentProfileIndex = 0;
 
         function displayProfile(index) {
-            var profile = profiles[index];
+            var profile = example_profiles[index];
             document.getElementById('name').textContent = profile.name;
             document.getElementById('email').textContent = profile.email;
             document.getElementById('occupation').textContent = profile.occupation;
@@ -43,17 +58,23 @@
 
             document.getElementById('yes-button').addEventListener('click', function() {
                 // Handle matching logic when user clicks Yes
-                // Send AJAX request to backend to store the match
-                // Display the email of the matched user if successful
-                var matchedEmail = profiles[currentProfileIndex].email;
+                var matchedEmail = example_profiles[currentProfileIndex].email;
                 alert('Matched with: ' + matchedEmail);
+                // Here you can send an AJAX request to your backend to store the match
+                // You may also want to handle displaying the next profile here
+                currentProfileIndex++;
+                if (currentProfileIndex < example_profiles.length) {
+                    displayProfile(currentProfileIndex);
+                } else {
+                    alert('No more profiles');
+                }
             });
 
             document.getElementById('no-button').addEventListener('click', function() {
                 // Handle logic when user clicks No
                 // Display the next user profile
                 currentProfileIndex++;
-                if (currentProfileIndex < profiles.length) {
+                if (currentProfileIndex < example_profiles.length) {
                     displayProfile(currentProfileIndex);
                 } else {
                     alert('No more profiles');

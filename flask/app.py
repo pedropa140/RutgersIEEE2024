@@ -115,8 +115,9 @@ def signup():
 
         # Store user ID in the session
         session["user_id"] = user_id
+        question_response = ("", "")
 
-        return render_template("chatbot.html")
+        return render_template("chatbot.html", question_response=question_response)
     else:
         return render_template("signup.html")
 
