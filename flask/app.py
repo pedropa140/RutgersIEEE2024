@@ -103,8 +103,10 @@ def signup():
             (first_name, last_name, email, passw),
         )
         cursor.execute(
-            "INSERT INTO users(first_name, last_name, email, passw) VALUES (Kusum, Gandham, koolkusum10@gmail.com, poop)",
+            "INSERT INTO users(first_name, last_name, email, passw) VALUES (?, ?, ?, ?)",
+            ("Kusum", "Gandham", "koolkusum10@gmail.com", "poop"),
         )
+
         db.commit()
 
         # Retrieve the inserted user's ID
@@ -157,6 +159,7 @@ def chatbot():
         model = genai.GenerativeModel('models/gemini-pro')
         result = model.generate_content(query)
         question_response = (userInput, result.text)
+        print(question_response)
 
         return render_template("chatbot.html", question_response=question_response)
     else:
