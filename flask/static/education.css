@@ -107,3 +107,25 @@ body {
 .match-child-width {
   width: 215%;
 }
+
+/* Additional CSS for styling */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.cool-header {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+.dynamic-body {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
