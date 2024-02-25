@@ -71,52 +71,53 @@ def education():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
-        if (
-            not request.form.get("email")
-            or not request.form.get("passw")
-            or not request.form.get("first_name")
-            or not request.form.get("last_name")
-        ):
-            return render_template("error.html")
+        # if (
+        #     not request.form.get("email")
+        #     or not request.form.get("passw")
+        #     or not request.form.get("first_name")
+        #     or not request.form.get("last_name")
+        # ):
+        #     return render_template("error.html")
 
-        email = request.form.get("email")
-        passw = request.form.get("passw")
-        first_name = request.form.get("first_name")
-        first_name = first_name[0].upper() + first_name[1:]
-        last_name = request.form.get("last_name")
-        last_name = last_name[0].upper() + last_name[1:]
+    #     email = request.form.get("email")
+    #     passw = request.form.get("passw")
+    #     first_name = request.form.get("first_name")
+    #     first_name = first_name[0].upper() + first_name[1:]
+    #     last_name = request.form.get("last_name")
+    #     last_name = last_name[0].upper() + last_name[1:]
 
 
-        db = get_db()
-        cursor = db.cursor()
-       # print("Email:", email)
+    #     db = get_db()
+    #     cursor = db.cursor()
+    #    # print("Email:", email)
 
-        # Check if email already exists in the database
-        cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
-        existing_user = cursor.fetchone()
-        if existing_user:
-            return render_template("error.html")
+    #     # Check if email already exists in the database
+    #     cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
+    #     existing_user = cursor.fetchone()
+    #     if existing_user:
+    #         return render_template("error.html")
 
-        # Insert the new user into the database
-        cursor.execute(
-            "INSERT INTO users (first_name, last_name, email, passw) VALUES (?, ?, ?, ?)",
-            (first_name, last_name, email, passw),
-        )
-        cursor.execute(
-            "INSERT INTO users(first_name, last_name, email, passw) VALUES (?, ?, ?, ?)",
-            ("Kusum", "Gandham", "koolkusum10@gmail.com", "poop"),
-        )
+    #     # Insert the new user into the database
+    #     cursor.execute(
+    #         "INSERT INTO users (first_name, last_name, email, passw) VALUES (?, ?, ?, ?)",
+    #         (first_name, last_name, email, passw),
+    #     )
+    #     cursor.execute(
+    #         "INSERT INTO users(first_name, last_name, email, passw) VALUES (?, ?, ?, ?)",
+    #         ("Kusum", "Gandham", "koolkusum10@gmail.com", "poop"),
+    #     )
 
-        db.commit()
+    #     db.commit()
 
-        # Retrieve the inserted user's ID
-        cursor.execute("SELECT id FROM users WHERE email = ?", (email,))
-        user_id = cursor.fetchone()[0]
+    #     # Retrieve the inserted user's ID
+    #     cursor.execute("SELECT id FROM users WHERE email = ?", (email,))
+    #     user_id = cursor.fetchone()[0]
 
         # Store user ID in the session
-        session["user_id"] = user_id
+        # session["user_id"] = user_id
+        question_response = ("", "")
 
-        return render_template("chatbot.html")
+        return render_template("chatbot.html", question_response=question_response)
     else:
         return render_template("signup.html")
 
@@ -363,6 +364,26 @@ def taskschedule():
 @app.route("/cal")
 def cal():
     return render_template("cal.html")
+
+@app.route("/matching")
+def matching():
+    return render_template("matching.html")
+
+@app.route('/events', methods=["GET", "POST"])
+def prodev():
+    if request.method == "POST":
+        event_name = request.json.get('eventName')
+        print(event_name)
+        if event_name:
+            # Process the event name as needed (e.g., save to database)
+            print("Attending event:", event_name)
+            calendarprogram.addSchedule(event_name)
+            return {"message": f"Attending event: {event_name}"}, 200
+        else:
+            return {"error": "Event name not provided in request body"},
+    else:
+       return render_template("events.html")
+
 
 init_db()
 if __name__ == "__main__":

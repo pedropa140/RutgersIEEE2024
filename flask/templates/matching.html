@@ -5,6 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to DRC Hack - Empowering Innovation">
     <link rel="stylesheet" href="../static/styles.css">
+    <style>
+        /* Style the profile container */
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Adjust the height as needed */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style profile information */
+        .profile-info {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Style profile buttons */
+        .match-buttons {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .match-buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .match-buttons button:hover {
+            background-color: #ddd;
+        }
+
+        #yes-button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+
+        #no-button {
+            background-color: #f44336; /* Red */
+            color: white;
+        }
+    </style>
     <title>DRC Hack - Matchmaking</title>
 </head>
 <body>
@@ -14,12 +62,12 @@
 
     <div class="profile-container">
         <h2>User Profile</h2>
-        <p>Name: <span id="name"></span></p>
-        <p>Email: <span id="email"></span></p>
-        <p>Occupation: <span id="occupation"></span></p>
-        <p>Description: <span id="description"></span></p>
-        <!-- Add more profile information as needed -->
-
+        <div class="profile-info">
+            <p><strong>Name:</strong> <span id="name"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Occupation:</strong> <span id="occupation"></span></p>
+            <p><strong>Description:</strong> <span id="description"></span></p>
+        </div>
         <div class="match-buttons">
             <button id="yes-button">Yes</button>
             <button id="no-button">No</button>
@@ -27,11 +75,38 @@
     </div>
 
     <script>
-        var profiles = {{ profiles|tojson }};
+        var example_profiles = [
+            {
+                "name": "Alice",
+                "email": "alice@example.com",
+                "occupation": "Software Engineer",
+                "description": "I'm passionate about coding and love exploring new technologies. In my free time, I enjoy hiking and reading science fiction novels."
+            },
+            {
+                "name": "Mary",
+                "email": "mary@example.com",
+                "occupation": "Data Scientist",
+                "description": "I'm a data enthusiast who enjoys diving into datasets to uncover insights. Outside of work, I'm an avid runner and enjoy cooking international cuisines."
+            },
+            {
+                "name": "Sophia",
+                "email": "sophia@example.com",
+                "occupation": "Web Developer",
+                "description": "I'm a web developer with a keen interest in user interface design. I spend my free time experimenting with new frontend frameworks and creating personal projects."
+            },
+            {
+                "name": "Emma",
+                "email": "emma@example.com",
+                "occupation": "Machine Learning Engineer",
+                "description": "I'm passionate about artificial intelligence and its applications. I enjoy working on challenging ML projects and staying updated with the latest research."
+            }
+            // Add more example profiles as needed
+        ];
+        
         var currentProfileIndex = 0;
 
         function displayProfile(index) {
-            var profile = profiles[index];
+            var profile = example_profiles[index];
             document.getElementById('name').textContent = profile.name;
             document.getElementById('email').textContent = profile.email;
             document.getElementById('occupation').textContent = profile.occupation;
@@ -43,21 +118,25 @@
 
             document.getElementById('yes-button').addEventListener('click', function() {
                 // Handle matching logic when user clicks Yes
-                // Send AJAX request to backend to store the match
-                // Display the email of the matched user if successful
-                var matchedEmail = profiles[currentProfileIndex].email;
+                var matchedEmail = example_profiles[currentProfileIndex].email;
                 alert('Matched with: ' + matchedEmail);
+                // Here you can send an AJAX request to your backend to store the match
+                // You may also want to handle displaying the next profile here
+                currentProfileIndex++;
+                if (currentProfileIndex >= example_profiles.length) {
+                    currentProfileIndex = 0; // Reset index to loop back
+                }
+                displayProfile(currentProfileIndex);
             });
 
             document.getElementById('no-button').addEventListener('click', function() {
                 // Handle logic when user clicks No
                 // Display the next user profile
                 currentProfileIndex++;
-                if (currentProfileIndex < profiles.length) {
-                    displayProfile(currentProfileIndex);
-                } else {
-                    alert('No more profiles');
+                if (currentProfileIndex >= example_profiles.length) {
+                    currentProfileIndex = 0; // Reset index to loop back
                 }
+                displayProfile(currentProfileIndex);
             });
         });
     </script>
