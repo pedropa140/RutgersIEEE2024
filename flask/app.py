@@ -11,6 +11,8 @@ import os.path
 # Third-Party Imports
 from flask import Flask, jsonify, render_template, redirect, request, session, url_for, g
 from datetime import datetime
+import datetime as dt
+
 
 # External Library Imports
 import google.generativeai as genai
@@ -201,7 +203,6 @@ def generate_scheduling_query(tasks):
     result = model.generate_content(query + taskss)
     return result
 
-
 @app.route("/taskschedule", methods=["GET", "POST"])
 def taskschedule():
     if request.method == "POST":
@@ -342,6 +343,8 @@ def taskschedule():
         response = {
             "content": content
         }
+        #print(content)
+       # successString = "Tasks Successfully Added to Calendar"
         return jsonify({"message": "Tasks Successfully Added to Calendar"})    
     else:
         return render_template("taskschedule.html")
