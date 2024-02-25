@@ -1,0 +1,8 @@
+/* Basic Styles */
+.bg-purple { background-color: #6f42c1; } /* A shade of purple */
+
+#hero {
+    background-image: url('...'); /* Optional: Subtle background image */
+}
+
+/* Animation Adjustments - Added Later */
