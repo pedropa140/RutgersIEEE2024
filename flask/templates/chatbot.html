@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../static/styles.css">
     <link rel="stylesheet" href="../static/chatbot.css">
     <title>DRC Hack - Chatbot</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
     <header>
@@ -16,8 +17,8 @@
     <div id="chatbot_area">
         <div id="chatbot_area_chat">
             <div id="chatbot_area_chat_container">
-                <!-- Here, you can display the user input -->
-                <p id="userInputPlaceholder"></p>
+                <p>User Input: {{ question_response[0] }}</p>
+                <p id="renderedContent">Bot Response: {{ question_response[1] }}</p>
             </div>
         </div>
         <form method = "post" form id="chatbot_area_textbox" >
@@ -25,6 +26,10 @@
             <button type="submit">↑</button>
         </form>
     </div>
+    <script>
+        var markdownContent = document.getElementById('markdownContent').value;
+        document.getElementById('renderedContent').innerHTML = marked(markdownContent);
+    </script>
 
 </body>
 </html>

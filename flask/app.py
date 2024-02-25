@@ -159,7 +159,8 @@ def chatbot():
 
         return render_template("chatbot.html", question_response=question_response)
     else:
-        return render_template("chatbot.html")
+        question_response = ("", "")
+        return render_template("chatbot.html", question_response=question_response)
 
 
 def generate_scheduling_query(tasks):
