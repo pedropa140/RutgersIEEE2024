@@ -12,7 +12,7 @@ import time
 SCOPES = 'https://www.googleapis.com/auth/calendar'
 
 def addSchedule(name):
-    
+    print("hi")
     local_time = dt.datetime.now()
     local_timezone = dt.datetime.now(dt.timezone.utc).astimezone().tzinfo
     current_time = dt.datetime.now(local_timezone)
@@ -73,4 +73,4 @@ def addSchedule(name):
         print("An error occurred:", error)
 
 if __name__ == "__main__":
-    main()
+    addSchedule()

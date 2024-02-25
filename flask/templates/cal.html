@@ -95,7 +95,7 @@
         {% include 'navbar-auth.html' %}
     </header>
     <!-- Container for the iframe and calendar -->
-    <div class="fullscreen-container">
+    <div class="fullscreen-container" id="top">
         <!-- Container for the to-do list -->
         <div class="calendar-container">
             <h1>My Weekly To-Do</h1>
@@ -117,6 +117,12 @@
         </div>
         <br>
         <br>
+        <p>Go To Top</p>
+        <a href="#top">
+            <button class="button">
+                <span>Click here</span>
+            </button>
+        </a>
     </div>
 
     <script>
