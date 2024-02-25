@@ -8,14 +8,12 @@ crossorigin="anonymous"
 />
 <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
 
-
-
-
+<!-- Navigation Bar -->
 <!-- Navigation Bar -->
 <nav class="navbar navbar-dark bg-dark fixed-top mb-3">
   <div class="container-fluid">
     <!-- Brand -->
-    <a class="navbar-brand" href="#">IEEE</a>
+    <a class="navbar-brand" href="{{ url_for('prodev') }}">IEEE</a>
     <!-- Offcanvas toggle button -->
     <button
       class="navbar-toggler"
@@ -52,7 +50,7 @@ crossorigin="anonymous"
             <a
               class="nav-link active"
               aria-current="page"
-              href="#"
+              href="{{ url_for('mainpage') }}"
               >Home</a
             >
           </li>
@@ -60,7 +58,7 @@ crossorigin="anonymous"
             <a
               class="nav-link active"
               aria-current="page"
-              href="#"
+              href="{{ url_for('login') }}"
               >Login</a
             >
           </li>
@@ -68,7 +66,7 @@ crossorigin="anonymous"
             <a
               class="nav-link active"
               aria-current="page"
-              href="#"
+              href="{{ url_for('signup') }}"
               >Signup</a
             >
           </li>
@@ -90,6 +88,7 @@ crossorigin="anonymous"
     </div>
   </div>
 </nav>
+
 
 <!-- Bootstrap JavaScript Libraries -->
 <script
