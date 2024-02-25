@@ -11,7 +11,7 @@ import time
 
 SCOPES = 'https://www.googleapis.com/auth/calendar'
 
-def addSchedule(name):
+def addSchedule(name, description, location, date, startTime, endTime, timezone):
     print("hi")
     local_time = dt.datetime.now()
     local_timezone = dt.datetime.now(dt.timezone.utc).astimezone().tzinfo
@@ -49,19 +49,25 @@ def addSchedule(name):
             for event in events:
                 start = event["start"].get("dateTime", event["start"].get("date"))
                 print(start, event["summary"])
-
+        print(name)
+        print(description)
+        print(location)
+        print(date)
+        print(startTime)
+        print(endTime)
+        print(timezone)
 
         event = {
             "summary": name,
-            "location": "Busch Student Center",
-            "description": "Explore job opportunities and network with top tech companies at our annual career fair.",
+            "location": location,
+            "description": description,
             "colorId": 6,
             "start": {
-                "dateTime": "2024-02-12T14:00:00" + timeZone,
+                "dateTime": f"{date}T{startTime}:00" + timezone,
             },
 
             "end": {
-                "dateTime": "2024-02-12T16:00:00" + timeZone,
+                "dateTime": f"{date}T{endTime}:00" + timezone,
             },
         }
 

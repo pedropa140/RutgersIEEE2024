@@ -25,12 +25,60 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Define tech-related career event titles and descriptions
             var careerEventData = [
-                { title: "Manchester STEM Women Graduate Careers Event", description: "STEM Careers Event introducing students and graduates to STEM employers in Manchester. The event is targeted towards people who are studying, or recently graduated from, a STEM related course at university and with an interest in working in industry." },
-                { title: "Melbourne STEM Women Graduate Careers Event sponsored by Department of Transport and Planning", description: "STEM Careers Event introducing students and graduates to STEM employers in Melbourne. The event is targeted towards people who are studying, or recently graduated from, a STEM related course at university and with an interest in working in industry." },
-                { title: "Sydney STEM Women Graduate Careers Event", description: "STEM Careers Event introducing students and graduates to STEM employers in Sydney. The event is targeted towards people who are studying, or recently graduated from, a STEM related course at university and with an interest in working in industry." },
-                { title: "Perth STEM Women Graduate Careers Event", description: "STEM Careers Event introducing students and graduates to STEM employers in Perth. The event is targeted towards people who are studying, or recently graduated from, a STEM related course at university and with an interest in working in industry." },
-                { title: "Brisbane STEM Women Graduate Careers Event", description: "STEM Careers Event introducing students and graduates to STEM employers in Brisbane. The event is targeted towards people who are studying, or recently graduated from, a STEM related course at university and with an interest in working in industry." },
-                { title: "London STEM Women Graduate Careers Event", description: "STEM Careers Event introducing students and graduates to STEM employers in London. The event is targeted towards people who are studying, or recently graduated from, a STEM related course at university and with an interest in working in industry." }
+                { 
+                    title: "Manchester STEM Women Graduate Careers Event", 
+                    description: "STEM Careers Event introducing students and graduates to STEM employers in Manchester. The event is targeted towards people who are studying, or recently graduated from, a STEM related course at university and with an interest in working in industry.",
+                    location: "Bridgewater Hall Lower Mosley Street Manchester M2 3WS",
+                    date: "2024-02-28",
+                    startTime: "13:00",
+                    endTime: "16:00",
+                    timezone: "+00:00",
+                },
+                { 
+                    title: "Melbourne STEM Women Graduate Careers Event sponsored by Department of Transport and Planning", 
+                    description: "STEM Careers Event introducing students and graduates to STEM employers in Melbourne. The event is targeted towards people who are studying, or recently graduated from, a STEM related course at university and with an interest in working in industry.", 
+                    location: "The Crown Resort, Melbourne 8 Whiteman Street, Southbank, VIC, 3006",
+                    date: "2024-03-12",
+                    startTime: "12:00",
+                    endTime: "16:00",
+                    timezone: "+10:00",
+                },
+                { 
+                    title: "Sydney STEM Women Graduate Careers Event", 
+                    description: "STEM Careers Event introducing students and graduates to STEM employers in Sydney. The event is targeted towards people who are studying, or recently graduated from, a STEM related course at university and with an interest in working in industry.", 
+                    location: "ICC Sydney 14 Darling Dr, Sydney, NSW, 2000",
+                    date: "2024-03-15",
+                    startTime: "12:00",
+                    endTime: "16:00",
+                    timezone: "+10:00",
+                },
+                { 
+                    title: "Perth STEM Women Graduate Careers Event", 
+                    description: "STEM Careers Event introducing students and graduates to STEM employers in Perth. The event is targeted towards people who are studying, or recently graduated from, a STEM related course at university and with an interest in working in industry.",
+                    location: "Perth Convention and Exhibition Centre 21 Mounts Bay Road, Perth, WA, 6000",
+                    date: "2024-03-20",
+                    startTime: "12:00",
+                    endTime: "16:00",
+                    timezone: "+00:00",
+                },
+                { 
+                    title: "Brisbane STEM Women Graduate Careers Event", 
+                    description: "STEM Careers Event introducing students and graduates to STEM employers in Brisbane. The event is targeted towards people who are studying, or recently graduated from, a STEM related course at university and with an interest in working in industry.", 
+                    location: "Brisbane Convention & Exhibition Centre Glenelg Street, South Brisbane, QLD, 4101",
+                    date: "2024-02-28",
+                    startTime: "13:00",
+                    endTime: "16:00",
+                    timezone: "+10:00",
+                },
+                { 
+                    title: "London STEM Women Graduate Careers Event", 
+                    description: "STEM Careers Event introducing students and graduates to STEM employers in London. The event is targeted towards people who are studying, or recently graduated from, a STEM related course at university and with an interest in working in industry.", 
+                    location: "QEII Centre Broad Sanctuary, London, England, SW1P 3EE",
+                    date: "2024-06-19",
+                    startTime: "12:00",
+                    endTime: "16:30",
+                    timezone: "+10:00",
+                }
             ];
 
             // Get the container to insert career event cards
@@ -45,7 +93,7 @@
                         <div class="card-body">
                             <h5 class="card-title">${event.title}</h5>
                             <p class="card-text">${event.description}</p>
-                            <button class="btn btn-primary" onclick="attendEvent('${event.title}')">Attend Event</button>
+                            <button class="btn btn-primary" onclick="attendEvent('${event.title}', '${event.description}', '${event.location}', '${event.date}', '${event.startTime}', '${event.endTime}', '${event.timezone}')">Attend Event</button>
                         </div>
                     </div>
                 `;
@@ -53,21 +101,21 @@
             });
         });
 
-        function attendEvent(eventName) {
+        function attendEvent(name, description, location, date, startTime, endTime, timezone) {
             // Make an AJAX request to the server to submit the event name
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/prodev", true);
+            xhr.open("POST", "/events", true);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        alert("Attending event: " + eventName);
+                        alert("Attending event: " + name);
                     } else {
-                        alert("Failed to attend event: " + eventName);
+                        alert("Failed to attend event: " + name);
                     }
                 }
             };
-            xhr.send(JSON.stringify({ eventName: eventName }));
+            xhr.send(JSON.stringify({ name: name, description: description, location: location, date: date, startTime: startTime, endTime: endTime, timezone: timezone }));
         }
     </script>
 </body>

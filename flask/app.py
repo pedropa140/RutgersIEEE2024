@@ -382,13 +382,25 @@ def matching():
 @app.route('/events', methods=["GET", "POST"])
 def prodev():
     if request.method == "POST":
-        event_name = request.json.get('eventName')
-        print(event_name)
-        if event_name:
+        name = request.json.get('name')
+        description = request.json.get('description')
+        location = request.json.get('location')
+        date = request.json.get('date')
+        startTime = request.json.get('startTime')
+        endTime = request.json.get('endTime')
+        timezone = request.json.get('timezone')
+        print(f'name {name}')
+        print(f'Description: {description}')
+        print(f'Location: {location}')
+        print(f'Date: {date}')
+        print(f'Start Time: {startTime}')
+        print(f'End Time: {endTime}')
+        print(f'Timezone: {timezone}')
+        if name:
             # Process the event name as needed (e.g., save to database)
-            print("Attending event:", event_name)
-            calendarprogram.addSchedule(event_name)
-            return {"message": f"Attending event: {event_name}"}, 200
+            print("Attending event:", name)
+            calendarprogram.addSchedule(name, description, location, date, startTime, endTime, timezone)
+            return {"message": f"Attending event: {name}"}, 200
         else:
             return {"error": "Event name not provided in request body"},
     else:
