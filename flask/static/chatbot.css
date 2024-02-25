@@ -22,8 +22,8 @@ h1 {
 #chatbot_area_chat_container {
     width: 100%;
     height: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
     padding-top: 15px;
     background-color: lightgray;
 }
@@ -70,4 +70,12 @@ button[type="submit"]:hover {
 input[type="text"]:valid + button[type="submit"] {
     box-shadow: 0 0 10px lightgray;
     background-color: #007bff;
+}
+.userInput {
+    width: 40%;
+    text-align: left;
+}
+.botInput {
+    width: 40%;
+    text-align: right;
 }
